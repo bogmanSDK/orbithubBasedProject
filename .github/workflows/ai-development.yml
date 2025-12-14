@@ -8,6 +8,11 @@ on:
         required: true
         type: string
 
+permissions:
+  contents: write
+  pull-requests: write
+  actions: read
+
 jobs:
   call-ai-development:
     uses: bogmanSDK/orbithub/.github/workflows/ai-development.yml@main
