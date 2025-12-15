@@ -1,0 +1,21 @@
+name: AI Development Phase
+
+on:
+  workflow_dispatch:
+    inputs:
+      ticket_key:
+        description: 'Jira ticket key (e.g., AIH-43)'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: read
+
+jobs:
+  call-ai-development:
+    uses: bogmanSDK/orbithub/.github/workflows/ai-development.yml@main
+    with:
+      ticket_key: ${{ inputs.ticket_key }}
+    secrets: inherit
